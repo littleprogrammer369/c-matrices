@@ -3,7 +3,11 @@
 using namespace std;
 int main() {
 
-    while (true) {
+    bool flag = true;
+    while (flag)
+    {
+
+
         float mat1[3][3];
         float mat2[3][3];
         float mat[3][3];
@@ -31,7 +35,7 @@ int main() {
 
         int choice = -1;
         cout << "enter your choice :\nsum(1)\ndifference(2)\nProduct(3)\nQuotient(4)\n";
-        
+
 
         do {
             cin >> choice;
@@ -186,17 +190,31 @@ int main() {
             }
         } while (choice < 1 || choice > 4);
 
-        char x;
-        cout << "do you want to solving determinant ? [y/n] ";
-        cin >> x;
-        if (x == 'y') {
-            float det;
-            det = (mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1]))) - (mat[0][1] * ((mat[1][0] * mat[2][2]) - (mat[1][2] * mat[2][0]))) + (mat[0][2] * ((mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0])));
-            cout << "\ndeterminant is : " << det << endl;
+        while (true) {
+
+            char x;
+            cout << "do you want to solving determinant ? [y/n] ";
+            cin >> x;
+            if (x == 'y') {
+                float det;
+                det = (mat[0][0] * ((mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1]))) - (mat[0][1] * ((mat[1][0] * mat[2][2]) - (mat[1][2] * mat[2][0]))) + (mat[0][2] * ((mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0])));
+                cout << "\ndeterminant is : " << det << endl;
+                break;
+            }
+            else {
+                break;
+            }
+
+        }
+        char y;
+        cout << "do want to try it again ? [y/n]  ";
+        cin >> y;
+ 
+        if (y != 'y') {
             break;
         }
         else {
-            break;
+            continue;
         }
     }
     cout << "\nthanks for using this app . . .\nsee you later !\n\n";
